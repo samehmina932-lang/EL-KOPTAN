@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL KOPTAN</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#06111f,#0b1f3a,#123c7a,#0d2b56);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* Loading */
+#loader{
+position:fixed;
+inset:0;
+background:#020812;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+flex-direction:column;
+}
+
+.spinner{
+width:70px;
+height:70px;
+border:5px solid rgba(255,255,255,.15);
+border-top:5px solid white;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+#loader p{
+margin-top:20px;
+}
+
+/* Login */
+#loginScreen{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.loginBox{
+width:420px;
+max-width:90%;
+padding:35px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+border-radius:25px;
+text-align:center;
+}
+
+.loginBox h1{
+margin-bottom:10px;
+}
+
+.loginBox input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+margin-top:15px;
+font-size:16px;
+}
+
+.loginBox button{
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+.loginBox button:hover{
+transform:translateY(-3px);
+}
+
+/* Pages */
+.page{
+display:none;
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+padding:40px 20px;
+min-height:100vh;
+}
+
+.page.active{
+display:block;
+opacity:1;
+transform:translateY(0);
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.logo{
+display:flex;
+justify-content:center;
+margin-top:20px;
+}
+
+.logo img{
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid rgba(255,255,255,.15);
+}
+
+.brand{
+text-align:center;
+margin-top:20px;
+}
+
+.brand h1{
+font-size:55px;
+letter-spacing:5px;
+}
+
+.brand p{
+color:#cbd5e1;
+margin-top:10px;
+}
+
+.hero{
+margin-top:40px;
+background:rgba(255,255,255,.06);
+border-radius:25px;
+overflow:hidden;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.hero img{
+width:100%;
+height:450px;
+object-fit:cover;
+}
+
+.content{
+padding:40px;
+}
+
+#welcomeText{
+font-size:40px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+line-height:1.9;
+}
+
+.btn{
+margin-top:25px;
+padding:15px 35px;
+background:#2563eb;
+border:none;
+color:white;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* particles */
+.particle{
+position:fixed;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+opacity:.3;
+animation:float linear infinite;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-100px);
+}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+<div class="spinner"></div>
+<p>Loading EL KOPTAN...</p>
+</div>
+
+<div id="loginScreen">
+<div class="loginBox">
+<h1>EL KOPTAN</h1>
+<p>Enter your name to continue</p>
+
+<input id="nameInput" type="text" placeholder="Your Name">
+
+<button onclick="enterSite()">Continue</button>
+</div>
+</div>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page">
+
+<div class="container">
+
+<div class="logo">
+<img src="New folder/Screenshot 2026-05-30 023923.png">
+</div>
+
+<div class="brand">
+<h1>EL KOPTAN</h1>
+<p>Welcome</p>
+</div>
+
+<div class="hero">
+
+<img src="New folder/download (31).jpeg">
+
+<div class="content">
+
+<div id="welcomeText"></div>
+
+<div class="card">
+<h2>Welcome Message</h2>
+
+<p>
+اجتماعنا يوم الخميس الساعه 6 مستنينك  
+</p>
+
+<button class="btn" onclick="goPage2()">
+Continue
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+
+<div class="container">
+
+<div class="hero">
+
+<div class="content">
+
+<h1 id="welcome"></h1>
+
+<div class="card">
+
+<h2> Message for you </h2>
+
+<p>
+    حيثما اجتمع اثنان أو ثلاثة باسمي فهناك أكون في وسطهم 
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Loader */
+setTimeout(()=>{
+document.getElementById('loader').style.display='none';
+document.getElementById('loginScreen').style.display='flex';
+},2000);
+
+/* particles */
+for(let i=0;i<50;i++){
+let p=document.createElement('div');
+p.classList.add('particle');
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=(5+Math.random()*10)+'s';
+p.style.opacity=Math.random();
+document.body.appendChild(p);
+}
+
+/* typing effect */
+function typeText(el,text){
+let i=0;
+el.innerHTML='';
+
+let interval=setInterval(()=>{
+el.innerHTML+=text.charAt(i);
+i++;
+
+if(i>=text.length){
+clearInterval(interval);
+}
+},70);
+}
+
+function enterSite(){
+
+let name=document.getElementById('nameInput').value.trim();
+
+if(name===""){
+alert("Please enter your name");
+return;
+}
+
+document.getElementById('loginScreen').style.display='none';
+
+document.getElementById('page1').classList.add('active');
+
+typeText(
+document.getElementById('welcomeText'),
+`Hi, ${name} 👋`
+);
+
+document.getElementById('welcomeText2').innerHTML=
+`Welcome Back, ${name} 👋`;
+
+}
+
+function goPage2(){
+
+document.getElementById('page1').classList.remove('active');
+
+setTimeout(()=>{
+document.getElementById('page2').classList.add('active');
+},300);
+
+}
+
+</script>
+
+</body>
+</html>
